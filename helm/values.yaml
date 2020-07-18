@@ -1,0 +1,33 @@
+# Default values for mp-web-client.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: 543164192837.dkr.ecr.eu-central-1.amazonaws.com/mp-signature-verifier
+  pullPolicy: Always
+
+nameOverride: ""
+fullnameOverride: ""
+
+recreationFlag: 1
+
+global:
+  recreationFlag: 1
+
+
+service:
+  portName: http-8030
+  type: ClusterIP
+  port: 8030
+  targetPort: 8030
+
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

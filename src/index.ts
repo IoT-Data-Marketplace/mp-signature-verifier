@@ -15,6 +15,8 @@ app.use('/api', services);
 
 const port = process.env.PORT || 8030;
 
+app.use('/healthcheck', require('express-healthcheck')());
+
 app.listen(port, () =>
   console.log(`Express app listening on localhost:${port}`)
 );
