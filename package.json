@@ -1,0 +1,28 @@
+{
+  "name": "mp-signature-verifier",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "dev": "nodemon --watch 'src/**/*.ts' --exec 'yarn start'",
+    "start": "ts-node src",
+    "test": "echo Skipped."
+  },
+  "dependencies": {
+    "@types/cors": "^2.8.4",
+    "@types/eth-sig-util": "^2.1.0",
+    "@types/express": "^4.17.4",
+    "@types/node": "^14.0.23",
+    "@types/validator": "^13.1.0",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "eth-sig-util": "^2.5.3",
+    "ethereumjs-util": "^7.0.0",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.6"
+  }
+}
