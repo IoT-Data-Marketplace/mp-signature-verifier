@@ -11,8 +11,8 @@ export const create = (req: Request, res: Response) => {
 
     const msg = nonce;
 
-    // We now are in possession of msg, publicAddress and signature. We
-    // will use a helper from eth-sig-util to extract the address from the signature
+    // We are naw in possession of msg, publicAddress and signature. We
+    // will use a helper fn from eth-sig-util to extract the address from the signature
     const msgBufferHex = bufferToHex(Buffer.from(msg, 'utf8'));
     const address = recoverPersonalSignature({
         data: msgBufferHex,
@@ -20,12 +20,12 @@ export const create = (req: Request, res: Response) => {
     });
 
     // The signature verification is successful if the address found with
-    // sigUtil.recoverPersonalSignature matches the initial publicAddress
+    // sigUtil.recoverPersonalSignature matches the user's publicAddress
     if (address.toLowerCase() === publicAddress.toLowerCase()) {
         res.status(200).send({ result: 'true' });
         return true;
     } else {
         res.status(401).send({ error: 'Signature verification failed' });
-        return null;
+        return false;
     }
 };
